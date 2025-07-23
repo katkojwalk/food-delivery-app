@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const API_URL = 'https://food-delivery-app-frontend-16ab.onrender.com';
+const API_URL = 'http://localhost:4000/api';
 
 function App() {
   const [foodItems, setFoodItems] = useState([]);

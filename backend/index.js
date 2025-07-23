@@ -79,11 +79,8 @@ app.get("/api/orders", async (req, res) => {
   res.json(orders);
 });
 
-
 // ✅ Start server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
-
-//
