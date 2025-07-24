@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const baseURL = process.env.REACT_APP_API_URL?.replace(/\/+$/, ""); // removes any trailing slash
-const API_URL = `${baseURL}/api`;
+// TEMP FIX: Directly use working backend URL
+const API_URL = "https://food-delivery-app-backend-0kez.onrender.com/api";
+
+
 
 function App() {
   const [foodItems, setFoodItems] = useState([]);
@@ -55,6 +57,16 @@ function App() {
   };
 
   // Fetch saved orders
+
+useEffect(() => {
+  fetch(`${API_URL}/food`)
+    .then(res => res.json())
+    .then(data => setFoodItems(data))
+    .catch(err => console.error("Error fetching food items:", err));
+}, []);
+
+
+
   const fetchOrders = () => {
     axios
       .get(`${API_URL}/orders`)
