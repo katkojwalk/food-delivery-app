@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = process.env.REACT_APP_API_URL + "/api";
-
+const baseURL = process.env.REACT_APP_API_URL?.replace(/\/+$/, ""); // removes any trailing slash
+const API_URL = `${baseURL}/api`;
 
 function App() {
   const [foodItems, setFoodItems] = useState([]);
